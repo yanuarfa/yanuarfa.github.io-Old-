@@ -229,20 +229,26 @@ nav ul li a:hover::after,
   margin: 1rem;
   padding: 1rem;
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
+  border-radius: 20px;
   -webkit-box-shadow: 8px 14px 73px -32px rgba(15, 14, 44, 0.68);
   -moz-box-shadow: 8px 14px 73px -32px rgba(15, 14, 44, 0.68);
   box-shadow: 8px 14px 73px -32px rgba(15, 14, 44, 0.68);
-  transition: 0.3s all;
+  transition: 0.15s all;
   cursor: pointer;
 }
 
 .card:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
+  border-radius: 10px;
 }
 
 .card > img {
   width: 400px;
+  border-radius: 10px;
+  transition: 0.15s all;
+}
+
+.card > img:hover {
   border-radius: 5px;
 }
 
@@ -699,12 +705,22 @@ footer::before {
     transform: scale(0.5);
   }
 
-  .card {
-    transform: scale(0.8);
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .card:hover {
-    transform: scale(0.9);
+  .btn-hello {
+    margin: 10px;
+  }
+
+  .btn-contact {
+    margin: 10px;
+  }
+
+  .card {
+    transform: scale(0.8);
   }
 
   .card > img {
