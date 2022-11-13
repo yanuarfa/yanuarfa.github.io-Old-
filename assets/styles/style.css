@@ -396,10 +396,6 @@ footer::before {
   left: 0;
 }
 
-/* rgb(131, 140, 221),
-    rgb(69, 82, 197),
-    rgb(23, 42, 212) */
-
 .wave {
   position: fixed;
   top: 0;
@@ -644,6 +640,7 @@ footer::before {
     position: fixed;
     top: 0;
     width: 100%;
+    min-height: 80px;
   }
 
   .hamburger {
@@ -651,6 +648,7 @@ footer::before {
     border: none;
     background: transparent;
     z-index: 99;
+    margin-right: 20px;
   }
 
   .spanHamburger {
@@ -666,7 +664,7 @@ footer::before {
   .hamburger-active > span:nth-child(1) {
     transform: rotate(45deg);
     position: absolute;
-    top: 12px;
+    top: 21px;
     transform-origin: left center;
   }
 
@@ -678,7 +676,7 @@ footer::before {
     position: absolute;
     transform: rotate(-45deg);
     transform-origin: left center;
-    bottom: 14px;
+    bottom: 20px;
   }
 
   .greet h1 {

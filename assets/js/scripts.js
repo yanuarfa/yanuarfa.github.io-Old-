@@ -20,15 +20,15 @@ window.onscroll = function () {
   }
 };
 
-// const hamburger = document.querySelector("#hamburgerMenu");
-// const navMenu = document.querySelector("#nav-menu");
-// const body = document.querySelector("body");
+const hamburger = document.querySelector("#hamburgerMenu");
+const navMenu = document.querySelector("#nav-menu");
+const body = document.querySelector("body");
 
-// hamburger.addEventListener("click", function () {
-//   hamburger.classList.toggle("hamburger-active");
-//   navMenu.classList.toggle("show");
-//   body.classList.toggle("nooverflow");
-// });
+hamburger.addEventListener("click", function () {
+  hamburger.classList.toggle("hamburger-active");
+  navMenu.classList.toggle("show");
+  body.classList.toggle("nooverflow");
+});
 
 // const navbar = document.querySelector("nav"),
 //   navbarLink = document.querySelectorAll(".desktop a"),
