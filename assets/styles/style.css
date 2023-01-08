@@ -248,6 +248,8 @@ nav ul li a:hover::after,
   width: 400px;
   border-radius: 10px;
   transition: 0.15s all;
+  height: 300px;
+  object-fit: cover;
 }
 
 .card > img:hover {

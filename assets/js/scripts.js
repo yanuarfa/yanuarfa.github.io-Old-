@@ -151,19 +151,90 @@ const getQuotes = async () => {
     });
 
     if (getData.status === 404) {
-      alert("Wrong");
+      alert("Error");
       return null;
     }
     if (getData.status === 200) {
       const DATA = await getData.json();
-
       tagline.textContent = DATA.content;
-      // console.log(DATA.content);
       return;
     }
   } catch (e) {
     console.log(e);
   }
 };
+
+const dataProjects = [
+  {
+    id: 1,
+    imgSrc: "assets/images/1.jpg",
+    title: "Tesla Clone",
+    desc: "I think this is my first project using HTML.",
+    lang: ["HTML", "CSS"],
+    url: "#",
+  },
+  {
+    id: 2,
+    imgSrc: "assets/images/2.jpg",
+    title: "Paper Rock",
+    desc: "This is my first DOM Project.",
+    lang: ["Javascript", "CSS", "HTML"],
+    url: "#",
+  },
+  {
+    id: 3,
+    imgSrc: "assets/images/3.jpg",
+    title: "Activity Generator",
+    desc: "This was my project during bored.",
+    lang: ["Javascript", "CSS", "HTML"],
+    url: "#",
+  },
+  {
+    id: 4,
+    imgSrc: "assets/images/4.jpg",
+    title: "QR Generator",
+    desc: "This app can convert url to qr code",
+    lang: ["Javascript", "CSS", "HTML"],
+    url: "#",
+  },
+  {
+    id: 5,
+    imgSrc: "assets/images/5.jpg",
+    title: "Bookshelf",
+    desc: "This project was my latest project",
+    lang: ["Javascript", "CSS", "HTML"],
+    url: "https://bookshelfyanuar.netlify.app/",
+  },
+];
+
+const showCard = (data) => {
+  let lang = "";
+  for (let i = 0; i < data.lang.length; i++) {
+    lang += `
+    <span class="type">${data.lang[i]}</span>`;
+  }
+
+  return `
+  <a href="${data.url}">
+    <div class="card">
+      <img src="${data.imgSrc}" alt="${data.title}" />
+      <h3>${data.title}</h3>
+      <p>${data.desc}</p>
+        <span class="flex">
+        ${lang}
+      </span>
+    </div>
+  </a>
+  `;
+};
+
+function projectSection(data) {
+  let cards = "";
+  data.forEach((d) => (cards += showCard(d)));
+  const projectContainer = document.querySelector(".cards");
+  projectContainer.innerHTML = cards;
+}
+
+projectSection(dataProjects);
 
 getQuotes();
