@@ -137,3 +137,33 @@ document.addEventListener("DOMContentLoaded", () => {
     `https://picsum.photos/${divWidth.scrollWidth}/${divWidth.scrollHeight}`
   );
 });
+
+const tagline = document.querySelector(".tagline");
+
+const getQuotes = async () => {
+  try {
+    const getData = await fetch("https://api.quotable.io/random?maxLength=70", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (getData.status === 404) {
+      alert("Wrong");
+      return null;
+    }
+    if (getData.status === 200) {
+      const DATA = await getData.json();
+
+      tagline.textContent = DATA.content;
+      // console.log(DATA.content);
+      return;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+getQuotes();
