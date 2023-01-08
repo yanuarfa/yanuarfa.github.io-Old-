@@ -323,9 +323,14 @@ figure {
   justify-content: center;
 }
 
-figure > img {
+.img-profile {
   width: 400px;
   background-color: rgb(83, 98, 240);
+  border-radius: 20px;
+  transition: 0.15s all;
+}
+
+.img-profile:hover {
   border-radius: 10px;
 }
 
