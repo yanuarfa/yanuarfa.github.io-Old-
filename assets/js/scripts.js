@@ -5,8 +5,9 @@ window.onscroll = function () {
   const header = document.querySelector("header");
   const nav = document.querySelector("nav");
   const limit = header.offsetTop;
+  console.log(window.pageYOffset);
 
-  if (window.pageYOffset > limit) {
+  if (window.pageYOffset > 60) {
     nav.classList.add("nav-blur");
     // nav.classList.remove("nav-bg");
     nav.classList.remove("bg-dark-secondary");
@@ -15,8 +16,28 @@ window.onscroll = function () {
     nav.classList.remove("nav-blur");
   }
 
-  if (darkMode == "enabled") {
-    nav.classList.remove("nav-bg");
+  // if (darkMode == "enabled") {
+  //   nav.classList.remove("nav-bg");
+  // }
+
+  const home = document.getElementById("home");
+  const projects = document.getElementById("projects");
+  const aboutMe = document.getElementById("aboutme");
+  const menu = document.querySelectorAll(".desktop a");
+
+  if (home.offsetHeight > window.pageYOffset) {
+    menu[0].classList.add("menu-active");
+    menu[1].classList.remove("menu-active");
+  } else if (home.offsetHeight + projects.offsetHeight > window.pageYOffset) {
+    menu[0].classList.remove("menu-active");
+    menu[1].classList.add("menu-active");
+    menu[2].classList.remove("menu-active");
+  } else if (
+    home.offsetHeight + projects.offsetHeight + aboutMe.offsetHeight >
+    window.pageYOffset
+  ) {
+    menu[1].classList.remove("menu-active");
+    menu[2].classList.add("menu-active");
   }
 };
 
@@ -128,14 +149,9 @@ hamburger.addEventListener("click", function () {
 //   }
 // });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const divWidth = document.querySelector(".card-content");
-  const image = document.querySelector(".img-card");
-
-  image.setAttribute(
-    "src",
-    `https://picsum.photos/${divWidth.scrollWidth}/${divWidth.scrollHeight}`
-  );
+const btnHello = document.querySelector(".btn-hello");
+btnHello.addEventListener("click", () => {
+  getQuotes();
 });
 
 const tagline = document.querySelector(".tagline");
@@ -215,7 +231,7 @@ const showCard = (data) => {
   }
 
   return `
-  <a href="${data.url}">
+  <a href="${data.url}" data-aos="zoom-out-up">
     <div class="card">
       <img src="${data.imgSrc}" alt="${data.title}" />
       <h3>${data.title}</h3>

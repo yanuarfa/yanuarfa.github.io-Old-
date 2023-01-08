@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
+:root {
+  --blackgrey: rgb(46, 46, 46);
+}
+
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -38,7 +42,8 @@ nav {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   background-color: transparent;
-  background-color: rgba(236, 236, 236, 0.8);
+  background-color: rgba(255, 255, 255, 0.568);
+  border-bottom: 0.1px solid rgba(185, 185, 185, 0.459);
 }
 
 nav li {
@@ -65,12 +70,14 @@ nav ul li a,
 }
 
 nav ul li a:hover,
-.mobile a:hover {
+.mobile a:hover,
+.menu-active {
   color: rgb(18, 12, 36);
 }
 
 nav ul li a::after,
-.mobile a::after {
+.mobile a::after,
+.menu-active::after {
   position: absolute;
   content: "";
   background-color: rgb(7, 5, 17);
@@ -141,6 +148,13 @@ nav ul li a:hover::after,
 .card-content > img:hover {
   border-radius: 10px;
 }
+
+.img-card {
+  object-fit: cover;
+  width: 480px;
+  max-height: 540px;
+}
+
 .greet {
   width: 50%;
   display: flex;
@@ -169,15 +183,27 @@ nav ul li a:hover::after,
 
 .greet p {
   font-size: 1.2rem;
+  color: var(--blackgrey);
 }
 
 #projects {
   margin: 2rem 0;
+  position: relative;
+}
+
+#project_attr {
+  position: absolute;
+  right: 20px;
+  z-index: -99;
 }
 
 #projects a {
   text-decoration: none;
   color: inherit;
+}
+
+.project > p {
+  color: var(--blackgrey);
 }
 
 .btn-wrapper {
@@ -256,6 +282,10 @@ nav ul li a:hover::after,
   border-radius: 5px;
 }
 
+.card > p {
+  color: var(--blackgrey);
+}
+
 .type {
   padding: 5px 10px;
   border: 1px solid black;
@@ -268,7 +298,7 @@ nav ul li a:hover::after,
 }
 
 .project > h1,
-#aboutme > h2 {
+aside > h2 {
   font-size: 2.5rem;
   text-align: center;
 }
@@ -278,13 +308,23 @@ nav ul li a:hover::after,
   text-align: center;
 }
 
+.wrapper_aboutme {
+  display: flex;
+  margin: 0 50px;
+}
+
+.wrapper_aboutme p {
+  color: var(--blackgrey);
+  text-align: justify;
+}
+
 figure {
   display: flex;
   justify-content: center;
 }
 
 figure > img {
-  width: 200px;
+  width: 400px;
   background-color: rgb(83, 98, 240);
   border-radius: 10px;
 }
@@ -296,10 +336,6 @@ aside {
 aside > section {
   display: flex;
   justify-content: center;
-}
-
-aside section table tr {
-  height: 100px;
 }
 
 footer {
@@ -384,7 +420,7 @@ footer::before {
   position: relative;
 }
 
-.circle {
+/* .circle {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -459,7 +495,7 @@ footer::before {
 
 /* Loading Circle Anim */
 
-.contain {
+/* .contain {
   animation-delay: 4s;
   z-index: 1000;
   position: fixed;
@@ -482,7 +518,7 @@ footer::before {
   background: #25a7d7;
   background: -webkit-linear-gradient(rgb(131, 140, 221), rgb(63, 80, 241));
   background: linear-gradient(rgb(131, 140, 221), rgb(63, 80, 241));
-}
+} */
 
 .icon {
   width: 100px;
@@ -696,6 +732,22 @@ footer::before {
   .greet p {
     font-size: 1rem;
   }
+
+  .wrapper_aboutme {
+    display: block;
+    margin: 0 50px;
+  }
+
+  figure > img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrapper_aboutme {
+    display: block;
+    margin: 0 50px;
+  }
 }
 
 @media screen and (max-width: 589px) {
@@ -730,10 +782,6 @@ footer::before {
   .card > img {
     width: 400px;
     border-radius: 5px;
-  }
-
-  section > table {
-    margin-left: 20px;
   }
 }
 
