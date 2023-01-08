@@ -14,6 +14,7 @@ body {
   padding: 0;
   margin: 0;
   transition: 0.3s all;
+  overflow-x: hidden;
 }
 
 header {
@@ -738,13 +739,8 @@ footer::before {
     font-size: 1rem;
   }
 
-  .wrapper_aboutme {
-    display: block;
-    margin: 0 50px;
-  }
-
   figure > img {
-    width: 300px;
+    width: 200px;
   }
 }
 
@@ -787,6 +783,15 @@ footer::before {
   .card > img {
     width: 400px;
     border-radius: 5px;
+  }
+
+  .img-profile {
+    width: 350px;
+  }
+
+  .wrapper_aboutme {
+    scale: 0.8;
+    margin: 0;
   }
 }
 
