@@ -752,6 +752,10 @@ footer::before {
 }
 
 @media screen and (max-width: 589px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .animate-ilustration {
     transform: scale(0.8);
   }
